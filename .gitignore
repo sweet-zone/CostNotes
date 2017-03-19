@@ -1,0 +1,5 @@
+www
+node_modules
+npm-debug.log
+platforms/ios
+plugins/cordova-plugin-whitelist
