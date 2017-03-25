@@ -4,7 +4,7 @@
   "description": "your cost nots",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --port 8888 --inline --hot --content-base www",
-    "build": "NODE_ENV=production webpack --progress --hide-modules --content-base www"
+    "build": "NODE_ENV=production webpack --progress --hide-modules"
   },
   "keywords": [
     "cost",
