@@ -20,9 +20,14 @@
       <div class="page page-on-center">
         <div class="page-content">
           <div class="content-block">
-            <p>随手记账</p>
-            <p>你的专属账本</p>
-            <p>zjzhome@126.com</p>
+            <div class="card">
+              <div class="card-content">
+                <div class="card-content-inner" style="text-align: center">
+                  <h3>随手记账</h3>
+                  <p>DarkZone (zjzhome@126.com)</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

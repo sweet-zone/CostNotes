@@ -26,7 +26,7 @@
           root: '#app',
 
           modalTitle: '随手记账',
-          modalButtonOk: '知道了',
+          modalButtonOk: '确定',
           modalButtonCancel: '取消',
           modalPreloaderTitle: '加载中'
       })
@@ -35,18 +35,11 @@
       '$route' (to, from) {
         let toDepth = to.path.length
         let fromDepth = from.path.length
-        if(to.path === '/note' && from.path === '/') {
-          this.direction = 'up'
-          this.mode = 'in-out'
-        } else if(to.path === '/' && from.path === '/note') {
-          this.direction = 'down'
-          this.mode = 'in-out'
-        } else if(toDepth < fromDepth) {
+
+        if(toDepth < fromDepth) {
           this.direction = 'left'
-          this.mode = ''
         } else {
           this.direction = 'right'
-          this.mode = ''
         }
       }
     }

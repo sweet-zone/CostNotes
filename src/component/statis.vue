@@ -19,23 +19,14 @@
       <div class="page page-on-center">
         <div class="page-content">
             <div class="timeline">
-                <div class="timeline-item">
-                  <div class="timeline-item-date">21 <small>DEC</small></div>
-                  <div class="timeline-item-divider"></div>
-                  <div class="timeline-item-content">Plain text item</div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-item-date">22 <small>DEC</small></div>
+                <div class="timeline-item" v-for="note in costNotes">
+                  <div class="timeline-item-date">{{ note.time | formatTime }}</div>
                   <div class="timeline-item-divider"></div>
                   <div class="timeline-item-content">
-                    <div class="timeline-item-inner">Another text goes here</div>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-item-date">22 <small>DEC</small></div>
-                  <div class="timeline-item-divider"></div>
-                  <div class="timeline-item-content">
-                    <div class="timeline-item-inner">Another text goes here</div>
+                    <div class="timeline-item-inner">
+                      <div class="timeline-item-title">{{ note.cost }}</div>
+                      <div class="timeline-item-text">{{ note.remark || '' }}</div>
+                    </div>
                   </div>
                 </div>
             </div>
@@ -47,9 +38,18 @@
 
 <script>
   import router from '../router'
+  import util from '../api/util' 
 
   export default {
     name: 'setting',
+    computed: {
+      costNotes () {
+        return this.$store.state.costNotes.reverse()
+      }
+    },
+    filters: {
+      formatTime: util.formatTime
+    },
     methods: {
       goback() {
         router.go(-1)

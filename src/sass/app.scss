@@ -137,118 +137,48 @@
   animation-name: slideOutRight;
 }
 
-@-webkit-keyframes slideInUp {
-  from {
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-    visibility: visible;
-  }
+/*******************************************************/
 
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes slideInUp {
-  from {
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-    visibility: visible;
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
+.toast-container{
+  position: fixed;
+  width: 150px;
+  left: 50%;
+  top: 50%;
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  z-index: 11800;
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.8s
 }
 
-@-webkit-keyframes slideOutDown {
-  from {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    visibility: hidden;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
-}
-@keyframes slideOutDown {
-  from {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    visibility: hidden;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
+.toast-container.show{
+  display: block;
 }
 
-@-webkit-keyframes slideInDown {
-  from {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-}
-@keyframes slideInDown {
-  from {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
+.toast-container.fadein{
+  opacity: 1;
 }
 
-@-webkit-keyframes slideOutUp {
-  from {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    visibility: hidden;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-}
-@keyframes slideOutUp {
-  from {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    visibility: hidden;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
+.toast-icon{
+  font-size:85px;
+  text-align:center;
 }
 
+.toast-msg{
+  text-align:center;
+  font-weight:normal;
+}
 
-.slide-up-enter-active {
-  -webkit-animation-name: slideInUp;
-  animation-name: slideInUp;
-}
-.slide-up-leave-active {
-  -webkit-animation-name: slideOutUp;
-  animation-name: slideOutUp;
-}
-.slide-down-enter-active {
-  -webkit-animation-name: slideInDown;
-  animation-name: slideInDown;
-}
-.slide-down-leave-active {
-  -webkit-animation-name: slideOutDown;
-  animation-name: slideOutDown;
-}
 
 /********************************************************/
 
 
-.item-media .f7-icons, .item-media .framework7-icons {
+.f7-icons, .framework7-icons, .item-media .f7-icons, .item-media .framework7-icons {
     &.size-22 { font-size: 22px }
 }
 

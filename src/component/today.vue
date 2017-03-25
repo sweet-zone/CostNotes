@@ -22,16 +22,16 @@
           <div class="content-block-title">今日支出</div>
           <div class="list-block">
             <ul>
-              <li class="swipeout">
+              <li class="swipeout" v-for="note in todayNotes">
                 <div class="swipeout-content item-content">
-                  <div class="item-media"><span class="badge">吃喝</span></div>
+                  <div class="item-media"><span class="badge">{{ note.tag }}</span></div>
                   <div class="item-inner">
-                    <div class="item-title">12.34</div>
-                    <div class="item-after">12:30</div>
+                    <div class="item-title">{{ note.cost }}</div>
+                    <div class="item-after">{{ note.time | formatTime('today') }}</div>
                   </div>
                 </div>
                 <div class="swipeout-actions-right">
-                  <a href="#" @click="removeNote">
+                  <a href="#" @click="removeNote(note.id)">
                     <i class="f7-icons size-22">trash</i>
                   </a>
                 </div>
@@ -50,14 +50,28 @@
 </template>
 
 <script>
+  import util from '../api/util' 
+
   export default {
     name: 'today',
     methods: {
-      removeNote () {
+      removeNote (id) {
+        let _this = this
         window.F7.confirm('确定要删除?', function() {
-
+          _this.$store.commit({
+            type: 'removeNote',
+            deletedId: id
+          })
         });
       }
+    },
+    computed: {
+      todayNotes () {
+        return this.$store.getters.todayNotes.reverse()
+      }
+    },
+    filters: {
+      formatTime: util.formatTime
     }
   }
 </script>

@@ -12,7 +12,9 @@
         </div>
         <div class="center sliding cn-title">标签设置</div>
         <div class="right">
-          <a href="#" class="link icon-only"></a>
+          <a href="#" class="link">
+            <span @click="addTag">添加</span>
+          </a>
         </div>
       </div>
     </div>
@@ -20,22 +22,9 @@
       <div class="page page-on-center">
         <div class="page-content">
           <div class="content-block">
-            <div class="chip">
-              <div class="chip-label">Example Chip</div>
-              <a href="#" class="chip-delete"></a>
-            </div>
-            <div class="chip">
-              <div class="chip-label">Chris</div>
-              <a href="#" class="chip-delete"></a>
-            </div>
-            <div class="chip">
-              <div class="chip-label">Sent</div>
-              <a href="#" class="chip-delete"></a>
-            </div>
-            <div class="chip">
-              <div class="chip-media"><img src="http://lorempixel.com/100/100/people/9/"></div>
-              <div class="chip-label">Jane Doe</div>
-              <a href="#" class="chip-delete"></a>
+            <div class="chip" v-for="tag in tags">
+              <div class="chip-label">{{ tag }}</div>
+              <a href="#" class="chip-delete" @click="removeTag(tag)"></a>
             </div>
           </div>
         </div>
@@ -52,7 +41,29 @@
     methods: {
       goback() {
         router.go(-1)
+      },
+      addTag() {
+        let _this = this
+        window.F7.prompt('请输入一个标签', function(value) {
+          if(value) {
+            _this.$store.commit({
+              type: 'addTag',
+              tag: value
+            })
+          }
+        })
+      },
+      removeTag(tag) {
+        this.$store.commit({
+          type: 'removeTag',
+          tag: tag
+        })
       }
-    }
+    },
+    computed: {
+      tags () {
+        return this.$store.state.tags
+      }
+    },
   }
 </script>
